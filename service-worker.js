@@ -1,4 +1,4 @@
-const CACHE='glucose-journal-v2';
+const CACHE='glucose-journal-v2.1.0';
 const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-180.png','./icon-512.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)));self.skipWaiting()});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('glucose-journal-')&&k!==CACHE).map(k=>caches.delete(k)))));self.clients.claim()});
